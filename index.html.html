@@ -1,0 +1,1896 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual Corporativo MdT365 · 365 Obrador · Grupo Horreöls</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #163563;
+    --az-med: #1e467f;
+    --az-cla: #2a5a9a;
+    --fondo: #f6f8fb;
+    --fondo-alt: #eef2f8;
+    --texto: #1f2937;
+    --texto-sec: #4b5563;
+    --borde: #d9e2ef;
+    --verde: #16a34a;
+    --verde-bg: #f0fdf4;
+    --verde-borde: #bbf7d0;
+    --amarillo: #f59e0b;
+    --amarillo-bg: #fffbeb;
+    --gris: #94a3b8;
+    --gris-bg: #f8fafc;
+    --gris-borde: #e2e8f0;
+    --rojo: #dc2626;
+    --rojo-bg: #fef2f2;
+    --oscuro: #475569;
+    --nt: #d96420;
+    --nt-bg: #fff7ed;
+    --re: #7e3cc9;
+    --re-bg: #faf5ff;
+    --lc: #1c7fb8;
+    --lc-bg: #eff6ff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  code, .mono {
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  /* ─── PORTADA ─── */
+  .portada {
+    background: var(--navy);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 60px 64px 40px;
+    page-break-after: always;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portada::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    background: rgba(42,90,154,0.25);
+    pointer-events: none;
+  }
+
+  .portada::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    background: rgba(30,70,127,0.3);
+    pointer-events: none;
+  }
+
+  .portada-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .portada-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-box {
+    width: 52px; height: 52px;
+    background: white;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--navy);
+    letter-spacing: -1px;
+  }
+
+  .portada-logo-text { line-height: 1.3; }
+  .portada-logo-text .brand { font-weight: 700; font-size: 17px; letter-spacing: 0.3px; }
+  .portada-logo-text .sub { font-size: 11px; opacity: 0.6; font-weight: 400; }
+
+  .portada-badge {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  .portada-centro {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 40px;
+  }
+
+  .portada-etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 32px;
+    width: fit-content;
+  }
+
+  .portada-etiqueta::before {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--amarillo);
+  }
+
+  .portada-titulo {
+    font-size: 84px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 12px;
+  }
+
+  .portada-titulo span { color: rgba(255,255,255,0.5); font-weight: 300; }
+
+  .portada-subtitulo {
+    font-size: 36px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 10px;
+  }
+
+  .portada-modelo {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 48px;
+  }
+
+  .portada-descripcion {
+    max-width: 780px;
+    font-size: 22px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.55);
+    border-left: 4px solid rgba(255,255,255,0.2);
+    padding-left: 24px;
+  }
+
+  .portada-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 24px;
+  }
+
+  .portada-meta { display: flex; gap: 40px; }
+  .portada-meta-item { line-height: 1.4; }
+  .portada-meta-item .label { font-size: 13px; opacity: 0.4; text-transform: uppercase; letter-spacing: 1px; }
+  .portada-meta-item .value { font-size: 16px; opacity: 0.7; font-family: 'IBM Plex Mono', monospace; }
+
+  .portada-estado {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ─── LOGO BOX más grande ─── */
+  .logo-box {
+    width: 70px !important; height: 70px !important;
+    font-size: 26px !important;
+  }
+  .portada-logo-text .brand { font-size: 24px !important; }
+  .portada-logo-text .sub { font-size: 15px !important; }
+  .portada-badge { font-size: 15px !important; padding: 8px 18px !important; }
+
+  /* ─── LÍNEA DE TIEMPO ─── */
+  .timeline-section {
+    background: var(--navy);
+    padding: 64px 64px 56px;
+    border-bottom: 3px solid rgba(255,255,255,0.08);
+  }
+
+  .timeline-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  .timeline-titulo {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.35);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .timeline-linea-top {
+    flex: 1;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .timeline-wrap {
+    position: relative;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+
+  /* línea horizontal continua */
+  .timeline-wrap::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 28px;
+    right: 28px;
+    height: 2px;
+    background: rgba(255,255,255,0.12);
+    z-index: 0;
+  }
+
+  .timeline-item {
+    flex: 1;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    padding: 0 6px;
+    text-decoration: none;
+  }
+
+  .timeline-nodo {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    background: var(--az-med);
+    border: 2px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 14px;
+    transition: all 0.2s;
+    flex-shrink: 0;
+  }
+
+  .timeline-item.nucleo .timeline-nodo {
+    background: var(--az-cla);
+    border-color: rgba(255,255,255,0.35);
+    box-shadow: 0 0 0 4px rgba(42,90,154,0.35);
+  }
+
+  .timeline-item:hover .timeline-nodo {
+    background: white;
+    color: var(--navy);
+    border-color: white;
+    transform: scale(1.1);
+  }
+
+  .timeline-texto {
+    text-align: center;
+  }
+
+  .timeline-cap {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .timeline-nombre {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.3;
+    margin-bottom: 5px;
+  }
+
+  .timeline-item.nucleo .timeline-nombre {
+    color: white;
+  }
+
+  .timeline-desc {
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.4;
+    max-width: 110px;
+    margin: 0 auto;
+  }
+
+  .timeline-tag {
+    display: inline-block;
+    margin-top: 6px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    font-size: 9px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    background: rgba(42,90,154,0.5);
+    color: rgba(255,255,255,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .timeline-item.nucleo .timeline-tag {
+    background: rgba(255,255,255,0.12);
+    color: rgba(255,255,255,0.75);
+    border-color: rgba(255,255,255,0.2);
+  }
+
+  .dot-amarillo {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--amarillo);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ─── WRAPPER PRINCIPAL ─── */
+  .main {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 48px 40px;
+  }
+
+  /* ─── AVISO ─── */
+  .aviso-construccion {
+    background: white;
+    border: 1px solid var(--borde);
+    border-left: 4px solid var(--amarillo);
+    border-radius: 8px;
+    padding: 18px 24px;
+    margin-bottom: 40px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .aviso-icono { font-size: 18px; margin-top: 1px; flex-shrink: 0; }
+  .aviso-texto { font-size: 13px; line-height: 1.6; color: var(--texto-sec); }
+  .aviso-texto strong { color: var(--texto); }
+
+  /* ─── DASHBOARD ─── */
+  .seccion-titulo {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--gris);
+    margin-bottom: 16px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .dashboard-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+
+  .kpi {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kpi::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--navy);
+  }
+
+  .kpi.verde::before { background: var(--verde); }
+  .kpi.amarillo::before { background: var(--amarillo); }
+  .kpi.azul::before { background: var(--az-cla); }
+  .kpi.gris::before { background: var(--gris); }
+
+  .kpi-numero {
+    font-size: 36px;
+    font-weight: 700;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--navy);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .kpi.verde .kpi-numero { color: var(--verde); }
+  .kpi.amarillo .kpi-numero { color: var(--amarillo); }
+  .kpi.azul .kpi-numero { color: var(--az-cla); }
+
+  .kpi-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--texto);
+    margin-bottom: 2px;
+  }
+
+  .kpi-sub {
+    font-size: 10px;
+    color: var(--gris);
+  }
+
+  .kpi-progreso {
+    margin-top: 12px;
+    height: 4px;
+    background: var(--fondo-alt);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .kpi-barra {
+    height: 100%;
+    border-radius: 2px;
+    background: var(--navy);
+    transition: width 0.5s ease;
+  }
+
+  .kpi.verde .kpi-barra { background: var(--verde); }
+  .kpi.azul .kpi-barra { background: var(--az-cla); }
+
+  /* ─── LEYENDAS ─── */
+  .leyendas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+
+  .leyenda-box {
+    background: white;
+    border: 1px solid var(--borde);
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  .leyenda-titulo {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--texto-sec);
+    margin-bottom: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .leyenda-items { display: flex; flex-direction: column; gap: 8px; }
+
+  .leyenda-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+  }
+
+  .estado-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: nowrap;
+  }
+
+  .badge-listo { background: var(--verde-bg); color: var(--verde); border: 1px solid var(--verde-borde); }
+  .badge-revision { background: var(--amarillo-bg); color: var(--amarillo); border: 1px solid #fde68a; }
+  .badge-proximo { background: var(--gris-bg); color: var(--gris); border: 1px solid var(--gris-borde); }
+  .badge-critico { background: var(--rojo-bg); color: var(--rojo); border: 1px solid #fecaca; }
+  .badge-obsoleto { background: #f1f5f9; color: var(--oscuro); border: 1px solid #cbd5e1; }
+
+  .flujo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .flujo-nt { background: var(--nt-bg); color: var(--nt); border: 1px solid #fed7aa; }
+  .flujo-re { background: var(--re-bg); color: var(--re); border: 1px solid #e9d5ff; }
+  .flujo-lc { background: var(--lc-bg); color: var(--lc); border: 1px solid #bfdbfe; }
+
+  /* ─── ÍNDICE MAESTRO ─── */
+  .indice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+  }
+
+  .indice-nav {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .nav-btn {
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+    border: 1px solid var(--borde);
+    background: white;
+    color: var(--texto-sec);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .nav-btn:hover { background: var(--navy); color: white; border-color: var(--navy); }
+  .nav-btn.nucleo { background: var(--navy); color: white; border-color: var(--navy); }
+
+  /* ─── ETAPA ─── */
+  .etapa {
+    margin-bottom: 32px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    background: white;
+    page-break-inside: avoid;
+  }
+
+  .etapa.nucleo {
+    border-color: var(--az-cla);
+    border-width: 2px;
+  }
+
+  .etapa-header {
+    background: var(--navy);
+    color: white;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .etapa.nucleo .etapa-header {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--az-med) 100%);
+  }
+
+  .etapa-header-izq { display: flex; align-items: center; gap: 14px; }
+
+  .etapa-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    opacity: 0.4;
+    line-height: 1;
+  }
+
+  .etapa-info {}
+  .etapa-nombre { font-size: 17px; font-weight: 700; line-height: 1.2; }
+  .etapa-desc { font-size: 11px; opacity: 0.6; margin-top: 3px; }
+
+  .etapa-header-der {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .etapa-counter {
+    text-align: right;
+  }
+
+  .counter-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .counter-label { font-size: 9px; opacity: 0.5; text-transform: uppercase; letter-spacing: 1px; }
+
+  .tag-nucleo {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+
+  .etapa-progreso {
+    height: 3px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .etapa-barra {
+    height: 100%;
+    background: var(--verde);
+    transition: width 0.4s;
+  }
+
+  .etapa-body { padding: 20px 24px; }
+
+  /* ─── BLOQUE ─── */
+  .bloque {
+    margin-bottom: 20px;
+  }
+
+  .bloque:last-child { margin-bottom: 0; }
+
+  .bloque-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--fondo-alt);
+  }
+
+  .bloque-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--az-cla);
+    background: var(--fondo-alt);
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  .bloque-nombre { font-size: 13px; font-weight: 600; color: var(--texto); }
+
+  .bloque-meta {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 10px;
+    color: var(--gris);
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .bloque-meta span { color: var(--verde); font-weight: 600; }
+  .bloque-meta span.prox { color: var(--gris); }
+
+  .tarjetas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+  }
+
+  /* ─── TARJETA ─── */
+  .tarjeta {
+    border: 1px solid var(--borde);
+    border-radius: 8px;
+    padding: 14px;
+    background: white;
+    transition: box-shadow 0.15s, border-color 0.15s;
+    position: relative;
+  }
+
+  .tarjeta:hover { box-shadow: 0 4px 16px rgba(22,53,99,0.08); border-color: var(--az-cla); }
+
+  .tarjeta.listo { border-left: 3px solid var(--verde); }
+  .tarjeta.proximo { border-left: 3px solid var(--gris); background: var(--gris-bg); }
+  .tarjeta.critico { border-left: 3px solid var(--rojo); }
+
+  .tarjeta-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .tarjeta-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--az-cla);
+  }
+
+  .tarjeta-nombre {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--texto);
+    line-height: 1.4;
+    margin-bottom: 10px;
+  }
+
+  .tarjeta.proximo .tarjeta-nombre { color: var(--texto-sec); }
+
+  .tarjeta-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  .tarjeta-responsable {
+    font-size: 10px;
+    color: var(--gris);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .tarjeta-responsable::before {
+    content: 'Resp.';
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    color: var(--gris-borde);
+    background: var(--fondo-alt);
+    padding: 1px 5px;
+    border-radius: 2px;
+  }
+
+  .tarjeta-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--fondo-alt);
+  }
+
+  .btn-ver {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    background: var(--navy);
+    color: white;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    cursor: pointer;
+    border: none;
+    letter-spacing: 0.3px;
+    transition: background 0.15s;
+  }
+
+  .btn-ver:hover { background: var(--az-cla); }
+
+  .btn-proximo {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 12px;
+    background: var(--gris-bg);
+    color: var(--gris);
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: 'IBM Plex Mono', monospace;
+    border: 1px solid var(--gris-borde);
+    cursor: default;
+  }
+
+  .ref-cruzada {
+    font-size: 9px;
+    color: var(--az-cla);
+    font-family: 'IBM Plex Mono', monospace;
+    background: var(--lc-bg);
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid #bfdbfe;
+  }
+
+  /* ─── ETAPAS SECUNDARIAS ─── */
+  .etapa.secundaria .etapa-header {
+    background: var(--fondo-alt);
+    color: var(--texto);
+    border-bottom: 1px solid var(--borde);
+  }
+
+  .etapa.secundaria .etapa-num { color: var(--az-cla); }
+  .etapa.secundaria .etapa-nombre { color: var(--texto); }
+  .etapa.secundaria .etapa-desc { color: var(--texto-sec); }
+  .etapa.secundaria .counter-num { color: var(--az-cla); }
+  .etapa.secundaria .counter-label { color: var(--gris); }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.5);
+    padding: 28px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    margin-top: 60px;
+  }
+
+  .footer-marca { font-weight: 600; color: rgba(255,255,255,0.8); font-size: 12px; }
+  .footer-meta { font-family: 'IBM Plex Mono', monospace; font-size: 10px; }
+
+  /* ─── BUSCADOR ─── */
+  .buscador-wrap {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(246,248,251,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--borde);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .buscador {
+    flex: 1;
+    max-width: 480px;
+    position: relative;
+  }
+
+  .buscador input {
+    width: 100%;
+    padding: 9px 16px 9px 36px;
+    border: 1px solid var(--borde);
+    border-radius: 7px;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    color: var(--texto);
+    background: white;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .buscador input:focus { border-color: var(--az-cla); }
+
+  .buscador::before {
+    content: '⌕';
+    position: absolute;
+    left: 12px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--gris);
+    font-size: 16px;
+    pointer-events: none;
+  }
+
+  .buscador-stats {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--gris);
+    white-space: nowrap;
+  }
+
+  .buscador-filtros {
+    display: flex;
+    gap: 6px;
+    margin-left: auto;
+  }
+
+  .filtro-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 10px;
+    font-family: 'IBM Plex Mono', monospace;
+    border: 1px solid var(--borde);
+    background: white;
+    cursor: pointer;
+    color: var(--texto-sec);
+    transition: all 0.15s;
+  }
+
+  .filtro-btn.activo { background: var(--navy); color: white; border-color: var(--navy); }
+  .filtro-btn:hover:not(.activo) { border-color: var(--az-cla); color: var(--az-cla); }
+
+  /* ─── PRINT ─── */
+  @media print {
+    .buscador-wrap { display: none; }
+    .portada { page-break-after: always; }
+    .etapa { page-break-inside: avoid; }
+    .tarjeta { page-break-inside: avoid; }
+    @page { size: A4; margin: 12mm; }
+  }
+
+  /* ─── OCULTAR EN BÚSQUEDA ─── */
+  .tarjeta.oculta { display: none; }
+  .bloque.vacio .tarjetas-grid { display: none; }
+  .bloque.vacio .bloque-header { opacity: 0.4; }
+
+  /* ─── SECCIÓN INFO ─── */
+  .info-etapa {
+    background: var(--fondo-alt);
+    border-radius: 6px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--texto-sec);
+    margin-bottom: 16px;
+    line-height: 1.5;
+    border-left: 3px solid var(--az-cla);
+  }
+
+  .info-etapa.aviso { border-left-color: var(--amarillo); }
+
+  /* resumen de etapa con barra */
+  .etapa-resumen {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid var(--fondo-alt);
+  }
+
+  .etapa-resumen-stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .dot-verde { background: var(--verde); }
+  .dot-gris { background: var(--gris); }
+
+  .etapa-resumen-stat strong {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+  }
+
+  .barra-etapa {
+    flex: 1;
+    height: 6px;
+    background: var(--fondo-alt);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .barra-fill {
+    height: 100%;
+    background: var(--verde);
+    border-radius: 3px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ PORTADA ═══════════════ -->
+<div class="portada">
+  <div class="portada-top">
+    <div class="portada-logo">
+      <div class="logo-box">365</div>
+      <div class="portada-logo-text">
+        <div class="brand">365 Obrador</div>
+        <div class="sub">Grupo Horreöls</div>
+      </div>
+    </div>
+    <div class="portada-badge">MdT365 · REV 01 · 2025</div>
+  </div>
+
+  <div class="portada-centro">
+    <div class="portada-etiqueta">DEOM · Sistema Documental Corporativo</div>
+    <div class="portada-titulo">Manual Corporativo<br><span>de Estándares de Trabajo</span></div>
+    <div class="portada-subtitulo">Modelo de Trabajo 365 · MdT365</div>
+    <div class="portada-modelo mono">Proceso de obra, cierre y entrega de tiendas</div>
+    <div class="portada-descripcion">
+      Sistema documental corporativo para ordenar, visualizar y estandarizar el proceso de obra de una tienda 365, desde la preobra hasta la entrega operativa y postobra.
+    </div>
+  </div>
+
+  <div class="portada-bottom">
+    <div class="portada-meta">
+      <div class="portada-meta-item">
+        <div class="label">Responsable</div>
+        <div class="value">Agustín de Rufino — DEOM</div>
+      </div>
+      <div class="portada-meta-item">
+        <div class="label">Departamento</div>
+        <div class="value">Expansión, Obras y Mantenimiento</div>
+      </div>
+      <div class="portada-meta-item">
+        <div class="label">Versión</div>
+        <div class="value">REV 01 — Mayo 2025</div>
+      </div>
+      <div class="portada-meta-item">
+        <div class="label">Documentos</div>
+        <div class="value">30 estándares actuales</div>
+      </div>
+    </div>
+    <div class="portada-estado">
+      <div class="dot-amarillo"></div>
+      En construcción
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ LÍNEA DE TIEMPO ═══════════════ -->
+<div class="timeline-section">
+  <div class="timeline-header">
+    <span class="timeline-titulo">Índice Maestro · MdT365</span>
+    <div class="timeline-linea-top"></div>
+  </div>
+  <div class="timeline-wrap">
+
+    <a class="timeline-item" href="#e00">
+      <div class="timeline-nodo">00</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 00</div>
+        <div class="timeline-nombre">Gobierno del Manual</div>
+        <div class="timeline-desc">Capítulo introductorio y de gobierno documental del sistema MdT365</div>
+        <span class="timeline-tag">1 listo</span>
+      </div>
+    </a>
+
+    <a class="timeline-item" href="#e01">
+      <div class="timeline-nodo">01</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 01</div>
+        <div class="timeline-nombre">Local</div>
+        <div class="timeline-desc">Búsqueda, análisis, negociación y firma de locales comerciales</div>
+        <span class="timeline-tag">2 listos</span>
+      </div>
+    </a>
+
+    <a class="timeline-item" href="#e02">
+      <div class="timeline-nodo">02</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 02</div>
+        <div class="timeline-nombre">Proyecto</div>
+        <div class="timeline-desc">Planos, validaciones, licencias y preparación técnica previa a obra</div>
+        <span class="timeline-tag">4 listos</span>
+      </div>
+    </a>
+
+    <a class="timeline-item nucleo" href="#e03">
+      <div class="timeline-nodo">03</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 03</div>
+        <div class="timeline-nombre">Preobra</div>
+        <div class="timeline-desc">Planificación, contratación, planos y arranque previos a ejecución</div>
+        <span class="timeline-tag">4 listos · núcleo</span>
+      </div>
+    </a>
+
+    <a class="timeline-item nucleo" href="#e04">
+      <div class="timeline-nodo">04</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 04</div>
+        <div class="timeline-nombre">Ejecución de Obra</div>
+        <div class="timeline-desc">Núcleo principal — arquitectura, instalaciones, obrador, sala</div>
+        <span class="timeline-tag">14 listos · núcleo</span>
+      </div>
+    </a>
+
+    <a class="timeline-item nucleo" href="#e05">
+      <div class="timeline-nodo">05</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 05</div>
+        <div class="timeline-nombre">Preentrega</div>
+        <div class="timeline-desc">Inventario, verificaciones técnicas y checklist final</div>
+        <span class="timeline-tag">2 listos · núcleo</span>
+      </div>
+    </a>
+
+    <a class="timeline-item nucleo" href="#e06">
+      <div class="timeline-nodo">06</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 06</div>
+        <div class="timeline-nombre">Cierre y Entrega</div>
+        <div class="timeline-desc">Documentación, entrega de llaves, formación y as-built</div>
+        <span class="timeline-tag">1 listo · núcleo</span>
+      </div>
+    </a>
+
+    <a class="timeline-item nucleo" href="#e07">
+      <div class="timeline-nodo">07</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 07</div>
+        <div class="timeline-nombre">Apertura y Postobra</div>
+        <div class="timeline-desc">Soporte en apertura, revisiones 7 / 30 / 90 días</div>
+        <span class="timeline-tag">0 listos · próximamente</span>
+      </div>
+    </a>
+
+    <a class="timeline-item" href="#e08">
+      <div class="timeline-nodo">08</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 08</div>
+        <div class="timeline-nombre">Operación y Mantenimiento</div>
+        <div class="timeline-desc">Mantenimiento preventivo, correctivo y lavados de cara</div>
+        <span class="timeline-tag">1 listo</span>
+      </div>
+    </a>
+
+    <a class="timeline-item" href="#e09">
+      <div class="timeline-nodo">09</div>
+      <div class="timeline-texto">
+        <div class="timeline-cap">Capítulo 09</div>
+        <div class="timeline-nombre">Transversales</div>
+        <div class="timeline-desc">Legal, Sanidad, PRL, Marketing, IT, Ventas, Franquicias</div>
+        <span class="timeline-tag">en arquitectura</span>
+      </div>
+    </a>
+
+  </div>
+</div>
+
+<!-- ═══════════════ BUSCADOR ═══════════════ -->
+<div class="buscador-wrap">
+  <div class="buscador">
+    <input type="text" id="busqueda" placeholder="Buscar estándar por nombre, número o bloque..." oninput="filtrar()">
+  </div>
+  <div class="buscador-stats" id="stats-busqueda">30 estándares listos · 85 próximamente</div>
+  <div class="buscador-filtros">
+    <button class="filtro-btn activo" onclick="setFiltro('todos', this)">Todos</button>
+    <button class="filtro-btn" onclick="setFiltro('listo', this)">✅ Listos</button>
+    <button class="filtro-btn" onclick="setFiltro('proximo', this)">⏳ Próximamente</button>
+    <button class="filtro-btn" onclick="setFiltro('nucleo', this)">Núcleo Obra</button>
+  </div>
+</div>
+
+<!-- ═══════════════ CONTENIDO PRINCIPAL ═══════════════ -->
+<div class="main">
+
+  <!-- AVISO CONSTRUCCIÓN -->
+  <div class="aviso-construccion">
+    <div class="aviso-icono">⚠</div>
+    <div class="aviso-texto">
+      <strong>Manual en fase de construcción.</strong> El núcleo inicial desarrollado corresponde al proceso de obra, desde la preobra hasta la entrega operativa. Los capítulos de Expansión, Legal, Sanidad, PRL, Marketing, IT, Ventas, Franquicias y Mantenimiento quedan integrados en la arquitectura MdT365 y se desarrollarán progresivamente.
+    </div>
+  </div>
+
+  <!-- ─── DASHBOARD ─── -->
+  <div class="seccion-titulo">Dashboard · Estado del Manual</div>
+
+  <div class="dashboard-grid">
+    <div class="kpi verde">
+      <div class="kpi-numero">30</div>
+      <div class="kpi-label">Estándares listos</div>
+      <div class="kpi-sub">Documentos disponibles</div>
+      <div class="kpi-progreso"><div class="kpi-barra" style="width:26%"></div></div>
+    </div>
+    <div class="kpi gris">
+      <div class="kpi-numero">85</div>
+      <div class="kpi-label">Próximamente</div>
+      <div class="kpi-sub">En arquitectura, pendientes</div>
+    </div>
+    <div class="kpi azul">
+      <div class="kpi-numero">26%</div>
+      <div class="kpi-label">Avance general</div>
+      <div class="kpi-sub">30 de 115 estándares</div>
+      <div class="kpi-progreso"><div class="kpi-barra" style="width:26%"></div></div>
+    </div>
+    <div class="kpi amarillo">
+      <div class="kpi-numero">En const.</div>
+      <div class="kpi-label">Estado del manual</div>
+      <div class="kpi-sub">Sistema vivo y escalable</div>
+    </div>
+  </div>
+
+  <div class="dashboard-grid-2">
+    <div class="kpi verde">
+      <div class="kpi-numero">27</div>
+      <div class="kpi-label">Núcleo de obra listo</div>
+      <div class="kpi-sub">Etapas 03 · 04 · 05 · 06 · 07</div>
+      <div class="kpi-progreso"><div class="kpi-barra" style="width:32%"></div></div>
+    </div>
+    <div class="kpi azul">
+      <div class="kpi-numero">32%</div>
+      <div class="kpi-label">Avance núcleo de obra</div>
+      <div class="kpi-sub">27 de 84 estándares</div>
+      <div class="kpi-progreso"><div class="kpi-barra" style="width:32%"></div></div>
+    </div>
+    <div class="kpi">
+      <div class="kpi-numero">3</div>
+      <div class="kpi-label">Depts. transversales listos</div>
+      <div class="kpi-sub">Fuera del núcleo de obra</div>
+    </div>
+  </div>
+
+  <!-- ─── LEYENDAS ─── -->
+  <div class="leyendas-grid">
+    <div class="leyenda-box">
+      <div class="leyenda-titulo">Estados documentales</div>
+      <div class="leyenda-items">
+        <div class="leyenda-item"><span class="estado-badge badge-listo">✅ Listo</span> Estándar aprobado y disponible</div>
+        <div class="leyenda-item"><span class="estado-badge badge-revision">⬛ En revisión</span> Documento en proceso de revisión</div>
+        <div class="leyenda-item"><span class="estado-badge badge-proximo">⏳ Próximamente</span> En arquitectura, pendiente de redactar</div>
+        <div class="leyenda-item"><span class="estado-badge badge-critico">⛔ Crítico</span> Requiere atención inmediata</div>
+        <div class="leyenda-item"><span class="estado-badge badge-obsoleto">⚫ Obsoleto</span> Versión reemplazada o retirada</div>
+      </div>
+    </div>
+    <div class="leyenda-box">
+      <div class="leyenda-titulo">Flujos MdT365</div>
+      <div class="leyenda-items">
+        <div class="leyenda-item"><span class="flujo-badge flujo-nt">NT</span> Nueva Tienda — Apertura desde cero</div>
+        <div class="leyenda-item"><span class="flujo-badge flujo-re">RE</span> Reforma — Intervención integral</div>
+        <div class="leyenda-item"><span class="flujo-badge flujo-lc">LC</span> Lavado de Cara — Renovación de imagen</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════ ÍNDICE MAESTRO ═══════════ -->
+  <div class="indice-header">
+    <div class="seccion-titulo" style="margin-bottom:0">Índice Maestro · MdT365</div>
+    <div class="indice-nav">
+      <a class="nav-btn" href="#e00">00</a>
+      <a class="nav-btn" href="#e01">01</a>
+      <a class="nav-btn" href="#e02">02</a>
+      <a class="nav-btn nucleo" href="#e03">03</a>
+      <a class="nav-btn nucleo" href="#e04">04</a>
+      <a class="nav-btn nucleo" href="#e05">05</a>
+      <a class="nav-btn nucleo" href="#e06">06</a>
+      <a class="nav-btn nucleo" href="#e07">07</a>
+      <a class="nav-btn" href="#e08">08</a>
+      <a class="nav-btn" href="#e09">09</a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       00 · GOBIERNO DEL MANUAL
+  ══════════════════════════════════════════ -->
+  <div class="etapa secundaria" id="e00">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">00</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Gobierno del Manual</div>
+          <div class="etapa-desc">Capítulo introductorio y de gobierno documental del sistema MdT365</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="etapa-counter"><div class="counter-num">1</div><div class="counter-label">listos</div></div>
+        <div class="etapa-counter"><div class="counter-num">6</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:14%"></div></div>
+    <div class="etapa-body">
+      <div class="bloque">
+        <div class="bloque-header">
+          <span class="bloque-num">00.05</span>
+          <span class="bloque-nombre">Sistema de codificación</span>
+          <div class="bloque-meta"><span>1</span> listo · <span class="prox">5</span> próx.</div>
+        </div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="00">
+            <div class="tarjeta-top"><span class="tarjeta-num mono">00.05.01</span><span class="estado-badge badge-listo">✅ Listo</span></div>
+            <div class="tarjeta-nombre">Denominación de Tiendas</div>
+            <div class="tarjeta-meta">
+              <span class="flujo-badge flujo-nt">NT</span>
+              <span class="flujo-badge flujo-re">RE</span>
+              <span class="flujo-badge flujo-lc">LC</span>
+            </div>
+            <div class="tarjeta-responsable">Expansión / DEOM</div>
+            <div class="tarjeta-footer">
+              <button class="btn-ver">Ver estándar →</button>
+            </div>
+          </div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="00"><div class="tarjeta-top"><span class="tarjeta-num mono">00.01.01</span></div><div class="tarjeta-nombre">Introducción al MdT365</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="00"><div class="tarjeta-top"><span class="tarjeta-num mono">00.02.01</span></div><div class="tarjeta-nombre">Cómo usar este manual</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="00"><div class="tarjeta-top"><span class="tarjeta-num mono">00.03.01</span></div><div class="tarjeta-nombre">Tipos de documentos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="00"><div class="tarjeta-top"><span class="tarjeta-num mono">00.06.01</span></div><div class="tarjeta-nombre">Control de versiones y revisiones</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="00"><div class="tarjeta-top"><span class="tarjeta-num mono">00.07.01</span></div><div class="tarjeta-nombre">Responsables por área</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       01 · LOCAL
+  ══════════════════════════════════════════ -->
+  <div class="etapa secundaria" id="e01">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">01</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Local</div>
+          <div class="etapa-desc">Búsqueda, análisis, negociación y firma de locales comerciales</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="etapa-counter"><div class="counter-num">2</div><div class="counter-label">listos</div></div>
+        <div class="etapa-counter"><div class="counter-num">4</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:33%"></div></div>
+    <div class="etapa-body">
+      <div class="bloque">
+        <div class="bloque-header">
+          <span class="bloque-num">01.02</span>
+          <span class="bloque-nombre">Analizar viabilidad</span>
+          <div class="bloque-meta"><span>1</span> listo · <span class="prox">0</span> próx.</div>
+        </div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="01">
+            <div class="tarjeta-top"><span class="tarjeta-num mono">01.02.01</span><span class="estado-badge badge-listo">✅ Listo</span></div>
+            <div class="tarjeta-nombre">Informe de Viabilidad de Local — Ingeniería</div>
+            <div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div>
+            <div class="tarjeta-responsable">Expansión / DEOM</div>
+            <div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header">
+          <span class="bloque-num">01.06</span>
+          <span class="bloque-nombre">Cambio de sociedad / titularidad</span>
+          <div class="bloque-meta"><span>1</span> listo</div>
+        </div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="01">
+            <div class="tarjeta-top"><span class="tarjeta-num mono">01.06.01</span><span class="estado-badge badge-listo">✅ Listo</span></div>
+            <div class="tarjeta-nombre">Cambio de Sociedad / Titularidad de Franquiciado</div>
+            <div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div>
+            <div class="tarjeta-responsable">Expansión / Legal / Franquicias</div>
+            <div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div>
+          </div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header">
+          <span class="bloque-num">01.01 – 01.05</span>
+          <span class="bloque-nombre">Buscar, negociar y firmar local</span>
+          <div class="bloque-meta"><span class="prox">4</span> próx.</div>
+        </div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="01"><div class="tarjeta-top"><span class="tarjeta-num mono">01.01.01</span></div><div class="tarjeta-nombre">Buscar local</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="01"><div class="tarjeta-top"><span class="tarjeta-num mono">01.03.01</span></div><div class="tarjeta-nombre">Negociar local</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="01"><div class="tarjeta-top"><span class="tarjeta-num mono">01.04.01</span></div><div class="tarjeta-nombre">Renegociar local existente</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="01"><div class="tarjeta-top"><span class="tarjeta-num mono">01.05.01</span></div><div class="tarjeta-nombre">Firmar contrato</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       02 · PROYECTO
+  ══════════════════════════════════════════ -->
+  <div class="etapa secundaria" id="e02">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">02</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Proyecto</div>
+          <div class="etapa-desc">Planos, validaciones, licencias y preparación técnica previa a obra</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="etapa-counter"><div class="counter-num">4</div><div class="counter-label">listos</div></div>
+        <div class="etapa-counter"><div class="counter-num">3</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:57%"></div></div>
+    <div class="etapa-body">
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">02.03</span><span class="bloque-nombre">Validar planos arquitectónicos</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="02"><div class="tarjeta-top"><span class="tarjeta-num mono">02.03.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Validación y Aprobación de Planos Arquitectónicos</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM / Ingeniería</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">02.04</span><span class="bloque-nombre">Preparar planos para inicio de obra</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="02"><div class="tarjeta-top"><span class="tarjeta-num mono">02.04.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Preparación de Planos — Inicio de Obra</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">02.05</span><span class="bloque-nombre">Sistema de códigos para lectura de planos</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="02"><div class="tarjeta-top"><span class="tarjeta-num mono">02.05.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Sistema de Códigos para Lectura de Planos</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span><span class="flujo-badge flujo-lc">LC</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">02.07</span><span class="bloque-nombre">Diagnóstico para lavados de cara</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="02"><div class="tarjeta-top"><span class="tarjeta-num mono">02.07.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Documento de Diagnóstico y Actuación para Lavados de Cara</div><div class="tarjeta-meta"><span class="flujo-badge flujo-lc">LC</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button><span class="ref-cruzada">↗ ref. 08.06</span></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">02.01 · 02.02 · 02.06</span><span class="bloque-nombre">Modelo, desarrollo y licencias</span><div class="bloque-meta"><span class="prox">3</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="02"><div class="tarjeta-top"><span class="tarjeta-num mono">02.01.01</span></div><div class="tarjeta-nombre">Definir modelo de tienda</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="02"><div class="tarjeta-top"><span class="tarjeta-num mono">02.02.01</span></div><div class="tarjeta-nombre">Desarrollar planos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="02"><div class="tarjeta-top"><span class="tarjeta-num mono">02.06.01</span></div><div class="tarjeta-nombre">Tramitar licencias y autorizaciones</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       03 · PREOBRA (NÚCLEO)
+  ══════════════════════════════════════════ -->
+  <div class="etapa nucleo" id="e03">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">03</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Preobra</div>
+          <div class="etapa-desc">Planificación, contratación, planos y arranque previos a la ejecución</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="tag-nucleo">Núcleo de obra</div>
+        <div class="etapa-counter"><div class="counter-num">4</div><div class="counter-label">listos</div></div>
+        <div class="etapa-counter"><div class="counter-num">5</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:44%"></div></div>
+    <div class="etapa-body">
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">03.01</span><span class="bloque-nombre">Secuencia de trabajo previa</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.01.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Secuencia de Trabajo — Expansión Retail</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">03.02</span><span class="bloque-nombre">Gestión de planos en obra</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.02.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Gestión de Planos en Obra</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">03.08</span><span class="bloque-nombre">Videovigilancia en obra</span><div class="bloque-meta"><span>2</span> listos</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.08.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Videovigilancia en Obra</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.08.02</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Videovigilancia en Obra V2</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">03.03 – 03.07 · 03.09</span><span class="bloque-nombre">Planificación, contratación y control</span><div class="bloque-meta"><span class="prox">5</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.03.01</span></div><div class="tarjeta-nombre">Planificación de inicio de obra</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.04.01</span></div><div class="tarjeta-nombre">Contratación de constructora e industriales</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.05.01</span></div><div class="tarjeta-nombre">Compra de materiales, mobiliario y equipos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.06.01</span></div><div class="tarjeta-nombre">Reunión de arranque de obra</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="03"><div class="tarjeta-top"><span class="tarjeta-num mono">03.09.01</span></div><div class="tarjeta-nombre">Seguridad previa y accesos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       04 · EJECUCIÓN DE OBRA (NÚCLEO PRINCIPAL)
+  ══════════════════════════════════════════ -->
+  <div class="etapa nucleo" id="e04">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">04</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Ejecución de Obra</div>
+          <div class="etapa-desc">Núcleo principal del manual · Arquitectura, instalaciones, obrador, sala y seguridad</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="tag-nucleo">Núcleo principal del manual</div>
+        <div class="etapa-counter"><div class="counter-num">14</div><div class="counter-label">listos</div></div>
+        <div class="etapa-counter"><div class="counter-num">35</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:29%"></div></div>
+    <div class="etapa-body">
+
+      <div class="info-etapa">
+        <strong>04 · Ejecución de Obra</strong> es el núcleo central del MdT365. Cubre todos los trabajos de campo: gestión y control, arquitectura y acabados, instalaciones técnicas, obrador, sala y mostrador, seguridad PRL y calidad de ejecución.
+      </div>
+
+      <!-- 04.01 Gestión y control -->
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">04.01</span><span class="bloque-nombre">Gestión y control de obra</span><div class="bloque-meta"><span>0</span> listos · <span class="prox">8</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.01.01</span></div><div class="tarjeta-nombre">Secuencia de trabajo</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.01.02</span></div><div class="tarjeta-nombre">Gestión de planos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.01.03</span></div><div class="tarjeta-nombre">Control de cambios</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.01.04</span></div><div class="tarjeta-nombre">Control de incidencias</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.01.05</span></div><div class="tarjeta-nombre">Validaciones intermedias</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.01.06</span></div><div class="tarjeta-nombre">Comunicación entre industriales</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.01.07</span></div><div class="tarjeta-nombre">Seguimiento de planning</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.01.08</span></div><div class="tarjeta-nombre">Control de desviaciones</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+
+      <!-- 04.02 Arquitectura -->
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">04.02</span><span class="bloque-nombre">Arquitectura y acabados</span><div class="bloque-meta"><span>7</span> listos · <span class="prox">5</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Fachada y Acabados Tienda 365</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span><span class="flujo-badge flujo-lc">LC</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.02</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Altura de Techo en Obrador y Almacén</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.03</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Anchos de Puertas</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.04</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Escalones y Rampas</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.05</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Rampa de Acceso</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span><span class="flujo-badge flujo-lc">LC</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.06</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Puerta Corredera Obrador Almacén</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.07</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Cerrojo Inferior Puertas Automáticas</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.08</span></div><div class="tarjeta-nombre">Pavimentos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.09</span></div><div class="tarjeta-nombre">Revestimientos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.10</span></div><div class="tarjeta-nombre">Pintura</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.11</span></div><div class="tarjeta-nombre">Techos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.02.12</span></div><div class="tarjeta-nombre">Pladur</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+
+      <!-- 04.03 Instalaciones -->
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">04.03</span><span class="bloque-nombre">Instalaciones técnicas</span><div class="bloque-meta"><span>5</span> listos · <span class="prox">6</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Instalación de Climatización</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / Ingeniería / Mantenimiento</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.02</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Instalación de Climatización en Tiendas 365 — REV 02</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span><span class="flujo-badge flujo-lc">LC</span></div><div class="tarjeta-responsable">Obras / Ingeniería / Mantenimiento</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.03</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Iluminación de la Zona de Mostrador, Tras Mostrador y Pan</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span><span class="flujo-badge flujo-lc">LC</span></div><div class="tarjeta-responsable">Obras / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.04</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Apagado SETA y PLCs</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / Ingeniería</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.05</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Instalación de Insectocaptor</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / Sanidad</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.06</span></div><div class="tarjeta-nombre">Electricidad</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.07</span></div><div class="tarjeta-nombre">Fontanería</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.08</span></div><div class="tarjeta-nombre">PCI</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.09</span></div><div class="tarjeta-nombre">IT / Telecom</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.10</span></div><div class="tarjeta-nombre">Audio</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.03.11</span></div><div class="tarjeta-nombre">CCTV</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+
+      <!-- 04.04 Obrador -->
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">04.04</span><span class="bloque-nombre">Obrador y zona productiva</span><div class="bloque-meta"><span>1</span> listo · <span class="prox">8</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Instalación Campana Pladur</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / Producto I+D / Mantenimiento</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.02</span></div><div class="tarjeta-nombre">Extracción y aportación de aire</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.03</span></div><div class="tarjeta-nombre">Hornos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.04</span></div><div class="tarjeta-nombre">Fermentadoras</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.05</span></div><div class="tarjeta-nombre">Enfriadores</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.06</span></div><div class="tarjeta-nombre">Mesas de trabajo</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.07</span></div><div class="tarjeta-nombre">Picas</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.08</span></div><div class="tarjeta-nombre">Descalcificador</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.04.09</span></div><div class="tarjeta-nombre">Almacenaje</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+
+      <!-- 04.05 Sala -->
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">04.05</span><span class="bloque-nombre">Sala, mostrador y experiencia cliente</span><div class="bloque-meta"><span>1</span> listo · <span class="prox">7</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.05.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Elementos de Marketing en Tienda</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span><span class="flujo-badge flujo-lc">LC</span></div><div class="tarjeta-responsable">Obras / Marketing / Ventas</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.05.02</span></div><div class="tarjeta-nombre">Mostrador</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.05.03</span></div><div class="tarjeta-nombre">Contramostrador</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.05.04</span></div><div class="tarjeta-nombre">Exposición de producto</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.05.05</span></div><div class="tarjeta-nombre">Iluminación comercial</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.05.06</span></div><div class="tarjeta-nombre">Fachada comercial</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.05.07</span></div><div class="tarjeta-nombre">Señalética interior</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.05.08</span></div><div class="tarjeta-nombre">Imagen de marca</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+
+      <!-- 04.06 Seguridad -->
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">04.06</span><span class="bloque-nombre">Seguridad, PRL y control operativo en obra</span><div class="bloque-meta"><span>2</span> listos · <span class="prox">4</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.06.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Gestión de Llaves de Caja Fuerte</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / PRL / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta listo" data-estado="listo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.06.02</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Normativa de Uso de EPIs en Obra</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / PRL / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.06.03</span></div><div class="tarjeta-nombre">Seguridad en trabajos de obra</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.06.04</span></div><div class="tarjeta-nombre">Accesos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.06.05</span></div><div class="tarjeta-nombre">Emergencias</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.06.06</span></div><div class="tarjeta-nombre">Zonas restringidas</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+
+      <!-- 04.07 Calidad -->
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">04.07</span><span class="bloque-nombre">Calidad de ejecución</span><div class="bloque-meta"><span class="prox">8</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.07.01</span></div><div class="tarjeta-nombre">Checklist de obra</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.07.02</span></div><div class="tarjeta-nombre">Revisión de acabados</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.07.03</span></div><div class="tarjeta-nombre">Revisión de instalaciones</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.07.04</span></div><div class="tarjeta-nombre">Revisión de sanidad</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.07.05</span></div><div class="tarjeta-nombre">Revisión de mantenimiento</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.07.06</span></div><div class="tarjeta-nombre">No conformidades</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.07.07</span></div><div class="tarjeta-nombre">Corrección de defectos</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="04"><div class="tarjeta-top"><span class="tarjeta-num mono">04.07.08</span></div><div class="tarjeta-nombre">Validación final previa a entrega</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       05 · PREENTREGA (NÚCLEO)
+  ══════════════════════════════════════════ -->
+  <div class="etapa nucleo" id="e05">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">05</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Preentrega</div>
+          <div class="etapa-desc">Inventario, verificaciones técnicas y checklist final antes de la entrega</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="tag-nucleo">Núcleo de obra</div>
+        <div class="etapa-counter"><div class="counter-num">2</div><div class="counter-label">listos</div></div>
+        <div class="etapa-counter"><div class="counter-num">6</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:25%"></div></div>
+    <div class="etapa-body">
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">05.01</span><span class="bloque-nombre">Inventario de apertura</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="05"><div class="tarjeta-top"><span class="tarjeta-num mono">05.01.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Inventario de Apertura de Tienda — Documento Completo</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM / Ventas / Mantenimiento</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">05.02</span><span class="bloque-nombre">Preentrega técnica</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="05"><div class="tarjeta-top"><span class="tarjeta-num mono">05.02.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Pre-entrega y Entrega de Obra a Negocio</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span><span class="flujo-badge flujo-re">RE</span></div><div class="tarjeta-responsable">Obras / DEOM / Ventas</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button><span class="ref-cruzada">↗ ref. 06.03</span></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">05.03 – 05.08</span><span class="bloque-nombre">Sanidad, operaciones y checklist final</span><div class="bloque-meta"><span class="prox">6</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="05"><div class="tarjeta-top"><span class="tarjeta-num mono">05.03.01</span></div><div class="tarjeta-nombre">Preentrega sanidad</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="05"><div class="tarjeta-top"><span class="tarjeta-num mono">05.04.01</span></div><div class="tarjeta-nombre">Preentrega mantenimiento</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="05"><div class="tarjeta-top"><span class="tarjeta-num mono">05.05.01</span></div><div class="tarjeta-nombre">Preentrega operaciones</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="05"><div class="tarjeta-top"><span class="tarjeta-num mono">05.06.01</span></div><div class="tarjeta-nombre">Limpieza final</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="05"><div class="tarjeta-top"><span class="tarjeta-num mono">05.07.01</span></div><div class="tarjeta-nombre">Corrección de incidencias</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="05"><div class="tarjeta-top"><span class="tarjeta-num mono">05.08.01</span></div><div class="tarjeta-nombre">Checklist final de apertura</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       06 · CIERRE DE OBRA Y ENTREGA (NÚCLEO)
+  ══════════════════════════════════════════ -->
+  <div class="etapa nucleo" id="e06">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">06</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Cierre de Obra y Entrega</div>
+          <div class="etapa-desc">Documentación, entrega de llaves, formación y as-built</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="tag-nucleo">Núcleo de obra</div>
+        <div class="etapa-counter"><div class="counter-num">1</div><div class="counter-label">listo</div></div>
+        <div class="etapa-counter"><div class="counter-num">7</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:12%"></div></div>
+    <div class="etapa-body">
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">06.08</span><span class="bloque-nombre">Informe nuevos franquiciados</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="06"><div class="tarjeta-top"><span class="tarjeta-num mono">06.08.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Informe Nuevos Franquiciados</div><div class="tarjeta-meta"><span class="flujo-badge flujo-nt">NT</span></div><div class="tarjeta-responsable">Obras / DEOM / Ventas / Franquicias</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">06.01 – 06.07</span><span class="bloque-nombre">Cierre documental y entrega</span><div class="bloque-meta"><span class="prox">7</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="06"><div class="tarjeta-top"><span class="tarjeta-num mono">06.01.01</span></div><div class="tarjeta-nombre">Cierre documental de obra</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="06"><div class="tarjeta-top"><span class="tarjeta-num mono">06.02.01</span></div><div class="tarjeta-nombre">Entrega de llaves</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="06"><div class="tarjeta-top"><span class="tarjeta-num mono">06.03.01</span></div><div class="tarjeta-nombre">Entrega a negocio</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="06"><div class="tarjeta-top"><span class="tarjeta-num mono">06.04.01</span></div><div class="tarjeta-nombre">Formación inicial</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="06"><div class="tarjeta-top"><span class="tarjeta-num mono">06.05.01</span></div><div class="tarjeta-nombre">Entrega a franquiciado</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="06"><div class="tarjeta-top"><span class="tarjeta-num mono">06.06.01</span></div><div class="tarjeta-nombre">Documentación As-Built</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="06"><div class="tarjeta-top"><span class="tarjeta-num mono">06.07.01</span></div><div class="tarjeta-nombre">Garantías, manuales y certificados</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       07 · APERTURA Y POSTOBRA (NÚCLEO)
+  ══════════════════════════════════════════ -->
+  <div class="etapa nucleo" id="e07">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">07</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Apertura y Postobra</div>
+          <div class="etapa-desc">Soporte en apertura, revisiones 7/30/90 días e incidencias postapertura</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="tag-nucleo">Núcleo de obra</div>
+        <div class="etapa-counter"><div class="counter-num">0</div><div class="counter-label">listos</div></div>
+        <div class="etapa-counter"><div class="counter-num">7</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:0%"></div></div>
+    <div class="etapa-body">
+      <div class="info-etapa aviso">Todos los estándares de apertura y postobra están en arquitectura. Se desarrollarán en la siguiente fase del manual.</div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">07.01 – 07.07</span><span class="bloque-nombre">Apertura, soporte y revisiones</span><div class="bloque-meta"><span class="prox">7</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="07"><div class="tarjeta-top"><span class="tarjeta-num mono">07.01.01</span></div><div class="tarjeta-nombre">Apertura de tienda</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="07"><div class="tarjeta-top"><span class="tarjeta-num mono">07.02.01</span></div><div class="tarjeta-nombre">Soporte primeros días</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="07"><div class="tarjeta-top"><span class="tarjeta-num mono">07.03.01</span></div><div class="tarjeta-nombre">Posvisita de obra</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="07"><div class="tarjeta-top"><span class="tarjeta-num mono">07.04.01</span></div><div class="tarjeta-nombre">Revisión 7 días</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="07"><div class="tarjeta-top"><span class="tarjeta-num mono">07.05.01</span></div><div class="tarjeta-nombre">Revisión 30 días</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="07"><div class="tarjeta-top"><span class="tarjeta-num mono">07.06.01</span></div><div class="tarjeta-nombre">Revisión 90 días</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="07"><div class="tarjeta-top"><span class="tarjeta-num mono">07.07.01</span></div><div class="tarjeta-nombre">Registro de incidencias postapertura</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       08 · OPERACIÓN Y MANTENIMIENTO
+  ══════════════════════════════════════════ -->
+  <div class="etapa secundaria" id="e08">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">08</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Operación y Mantenimiento</div>
+          <div class="etapa-desc">Mantenimiento preventivo, correctivo, actualizaciones y lavados de cara</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="etapa-counter"><div class="counter-num">1</div><div class="counter-label">listo</div></div>
+        <div class="etapa-counter"><div class="counter-num">5</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-progreso"><div class="etapa-barra" style="width:16%"></div></div>
+    <div class="etapa-body">
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">08.06</span><span class="bloque-nombre">Lavados de cara</span><div class="bloque-meta"><span>1</span> listo</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta listo" data-estado="listo" data-etapa="08"><div class="tarjeta-top"><span class="tarjeta-num mono">08.06.01</span><span class="estado-badge badge-listo">✅ Listo</span></div><div class="tarjeta-nombre">Documento de Diagnóstico y Actuación para Lavados de Cara</div><div class="tarjeta-meta"><span class="flujo-badge flujo-lc">LC</span></div><div class="tarjeta-responsable">Mantenimiento / DEOM</div><div class="tarjeta-footer"><button class="btn-ver">Ver estándar →</button><span class="ref-cruzada">↗ ref. 02.07</span></div></div>
+        </div>
+      </div>
+      <div class="bloque">
+        <div class="bloque-header"><span class="bloque-num">08.01 – 08.05</span><span class="bloque-nombre">Mantenimiento y actualizaciones</span><div class="bloque-meta"><span class="prox">5</span> próx.</div></div>
+        <div class="tarjetas-grid">
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="08"><div class="tarjeta-top"><span class="tarjeta-num mono">08.01.01</span></div><div class="tarjeta-nombre">Mantenimiento preventivo</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="08"><div class="tarjeta-top"><span class="tarjeta-num mono">08.02.01</span></div><div class="tarjeta-nombre">Mantenimiento correctivo</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="08"><div class="tarjeta-top"><span class="tarjeta-num mono">08.03.01</span></div><div class="tarjeta-nombre">Averías críticas</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="08"><div class="tarjeta-top"><span class="tarjeta-num mono">08.04.01</span></div><div class="tarjeta-nombre">Sustituciones</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+          <div class="tarjeta proximo" data-estado="proximo" data-etapa="08"><div class="tarjeta-top"><span class="tarjeta-num mono">08.05.01</span></div><div class="tarjeta-nombre">Actualizaciones de tienda</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       09 · TRANSVERSALES
+  ══════════════════════════════════════════ -->
+  <div class="etapa secundaria" id="e09">
+    <div class="etapa-header">
+      <div class="etapa-header-izq">
+        <div class="etapa-num">09</div>
+        <div class="etapa-info">
+          <div class="etapa-nombre">Legal, Sanidad, PRL y Departamentos Transversales</div>
+          <div class="etapa-desc">Capítulo secundario preparado para crecer — 9 departamentos en arquitectura</div>
+        </div>
+      </div>
+      <div class="etapa-header-der">
+        <div class="etapa-counter"><div class="counter-num">0</div><div class="counter-label">listos</div></div>
+        <div class="etapa-counter"><div class="counter-num">9</div><div class="counter-label">próx.</div></div>
+      </div>
+    </div>
+    <div class="etapa-body">
+      <div class="info-etapa aviso">Este capítulo está en arquitectura. Los departamentos están integrados en el MdT365 y se desarrollarán progresivamente en paralelo al núcleo de obra.</div>
+      <div class="tarjetas-grid">
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.01</span></div><div class="tarjeta-nombre">Legal</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.02</span></div><div class="tarjeta-nombre">Sanidad</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.03</span></div><div class="tarjeta-nombre">PRL</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.04</span></div><div class="tarjeta-nombre">Marketing</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.05</span></div><div class="tarjeta-nombre">IT</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.06</span></div><div class="tarjeta-nombre">Ventas</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.07</span></div><div class="tarjeta-nombre">Franquicias</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.08</span></div><div class="tarjeta-nombre">Mantenimiento</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+        <div class="tarjeta proximo" data-estado="proximo" data-etapa="09"><div class="tarjeta-top"><span class="tarjeta-num mono">09.09</span></div><div class="tarjeta-nombre">Producto I+D</div><div class="tarjeta-footer"><span class="btn-proximo">⏳ Próximamente</span></div></div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div class="footer">
+  <div>
+    <div class="footer-marca">Manual Corporativo MdT365 · 365 Obrador · Grupo Horreöls</div>
+    <div style="margin-top:4px">Departamento de Expansión, Obras y Mantenimiento — DEOM</div>
+  </div>
+  <div class="footer-meta">
+    <div>Responsable: Agustín de Rufino</div>
+    <div style="margin-top:2px">REV 01 · Mayo 2025 · En construcción</div>
+  </div>
+</div>
+
+<script>
+let filtroActivo = 'todos';
+
+function filtrar() {
+  const q = document.getElementById('busqueda').value.toLowerCase().trim();
+  const tarjetas = document.querySelectorAll('.tarjeta');
+  let visibles = 0;
+
+  tarjetas.forEach(t => {
+    const nombre = t.querySelector('.tarjeta-nombre')?.textContent.toLowerCase() || '';
+    const num = t.querySelector('.tarjeta-num')?.textContent.toLowerCase() || '';
+    const estado = t.dataset.estado || '';
+    const etapa = t.dataset.etapa || '';
+
+    let mostrar = true;
+
+    // filtro texto
+    if (q && !nombre.includes(q) && !num.includes(q)) mostrar = false;
+
+    // filtro estado
+    if (filtroActivo === 'listo' && estado !== 'listo') mostrar = false;
+    if (filtroActivo === 'proximo' && estado !== 'proximo') mostrar = false;
+    if (filtroActivo === 'nucleo' && !['03','04','05','06','07'].includes(etapa)) mostrar = false;
+
+    t.classList.toggle('oculta', !mostrar);
+    if (mostrar) visibles++;
+  });
+
+  document.getElementById('stats-busqueda').textContent =
+    q || filtroActivo !== 'todos'
+      ? `${visibles} resultado${visibles !== 1 ? 's' : ''}`
+      : '30 estándares listos · 85 próximamente';
+}
+
+function setFiltro(f, btn) {
+  filtroActivo = f;
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+  filtrar();
+}
+</script>
+
+</body>
+</html>
